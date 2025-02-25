@@ -7,7 +7,7 @@ from ament_index_python.packages import get_package_share_directory
 def generate_launch_description():
     # Путь к миру windy.sdf
     world_file = os.path.join(
-        get_package_share_directory('floatgen'),  # Замените на имя вашего пакета
+        get_package_share_directory('drone_sim_environment'),  # Замените на имя вашего пакета
         'worlds',
         'windy.sdf'
     )

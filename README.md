@@ -8,13 +8,16 @@ Uses Ignition and [simple_launch](https://github.com/oKermorgant/simple_launch).
 
 The following command will spawn an empty world with buoyancy plugin:
 
-`ros2 launch floatgen farm_launch.py` 
+`ros2 launch drone_sim_environment farm_launch.py` 
 
 ## Spawning a wind turbine as SDF model
 
 The following command will spawn the wind farm with joint state publisher:
 
-`ros2 launch floatgen floatgen_farm_launch.py`
+`ros2 launch drone_sim_environment turbine_launch.py`
+
+## Spawning a wind turbine as SDF model and running PX4 simulation:
+`ros2 launch drone_sim_environment wind_px4.launch.py`
 
 parameters:
 
@@ -28,4 +31,4 @@ parameters:
 
 This command will run Ignition, then spawn the farm with the given arguments:
 
-`ros2 run floatgen world.sh <args>` 
+`ros2 run drone_sim_environment world.sh <args>` 

@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="3">
-  <name>floatgen</name>
+  <name>drone_sim_environment</name>
   <version>0.1.0</version>
-  <description>The floatgen package</description>
+  <description>The drone_sim_environment package</description>
 
   <maintainer email="olivier.kermorgant@ec-nantes.fr">Olivier Kermorgant</maintainer>
 

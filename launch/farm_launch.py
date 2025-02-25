@@ -21,7 +21,7 @@ sl.declare_arg('spawn', True)
 
 
 def launch_setup():
-    resources_package = 'floatgen'
+    resources_package = 'drone_sim_environment'
 
     # Make path to resources dir without last package_name fragment.
     path_to_share_dir_clipped = ''.join(
@@ -47,13 +47,13 @@ def launch_setup():
         gz_args = '-r'
         if not sl.arg('gz_gui'):
             gz_args += ' -s'
-        sl.gz_launch(sl.find('floatgen', 'floatgen_world.sdf'), gz_args)
+        sl.gz_launch(sl.find('drone_sim_environment', 'drone_sim_environment_world.sdf'), gz_args)
 
     if sl.arg('spawn'):
         ns = 'farm'
         with sl.group(ns=ns):
             # run RSP with given parameters
-            sl.robot_state_publisher('floatgen', 'farm.xacro',
+            sl.robot_state_publisher('drone_sim_environment', 'farm.xacro',
                                             xacro_args=sl.arg_map('x', 'y', 'yaw', 'nx', 'ny', 'scale', 'velocity'))
 
             # spawn in Gazebo

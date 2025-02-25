@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(floatgen)
+project(drone_sim_environment)
 
 # Найти необходимые пакеты
 find_package(ament_cmake REQUIRED)

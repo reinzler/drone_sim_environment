@@ -1,2 +1,1 @@
-prepend-non-duplicate;GZ_SIM_RESOURCE_PATH;share/floatgen/models
-prepend-non-duplicate;IGN_GAZEBO_RESOURCE_PATH;share
+prepend-non-duplicate;GZ_SIM_RESOURCE_PATH;share/drone_sim_environment/models

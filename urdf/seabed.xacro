@@ -13,7 +13,7 @@
 <link name="seabed">
     <visual>
       <geometry>
-        <mesh filename="file://$(find floatgen)/meshes/$(arg seabed).ive"
+        <mesh filename="file://$(find drone_sim_environment)/meshes/$(arg seabed).ive"
               scale="${scale} ${scale} 1"/>
       </geometry>
     </visual>
