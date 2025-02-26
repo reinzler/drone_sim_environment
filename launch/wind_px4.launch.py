@@ -64,6 +64,13 @@ def generate_launch_description():
         }],
         output='screen')
 
+    rqt_image_view = [
+        "ros2 run rqt_image_view rqt_image_view",
+    ]
+
+    rqt_command = " ".join(rqt_image_view)
+    subprocess.run(["gnome-terminal", "--tab", "--", "bash", "-c", rqt_command + "; exec bash"])
+
     return LaunchDescription([
         gz_spawn_turbine,
         gz_bridge

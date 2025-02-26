@@ -1,6 +1,6 @@
 # Camera configuration
 - ros_topic_name: "camera/image_raw"
-  gz_topic_name: "world/default/model/x500_gimbal_0/link/camera_link/sensor/camera/image"
+  gz_topic_name: "camera/image"
   ros_type_name: "sensor_msgs/msg/Image"
   gz_type_name: "gz.msgs.Image"
   direction: GZ_TO_ROS
