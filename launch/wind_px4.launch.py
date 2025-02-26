@@ -16,6 +16,7 @@ def generate_launch_description():
         'wind_turbine_1',
         'model.sdf'
     )
+    gz_bridge_config_file = get_package_share_directory("drone_sim_environment") + '/config' + '/ros_gz_bridge.yaml'
 
     MicroXRCEAgent_command = [
         "MicroXRCEAgent udp4 -p 8888",
@@ -38,7 +39,7 @@ def generate_launch_description():
 
     # Запуск PX4 SITL через команду make px4_sitl gz_x500
     px4_sitl_command = [
-        "cd ~/drone_autopilot/PX4-Autopilot && make px4_sitl gz_x500_windy",
+        "cd ~/drone_autopilot/PX4-Autopilot && make px4_sitl gz_x500_gimbal_windy",
     ]
 
     px4_command = " ".join(px4_sitl_command)
@@ -55,7 +56,16 @@ def generate_launch_description():
         output="screen"
     )
 
+    gz_bridge = Node(
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
+        parameters=[{
+            'config_file': gz_bridge_config_file,
+        }],
+        output='screen')
+
     return LaunchDescription([
-        gz_spawn_turbine
+        gz_spawn_turbine,
+        gz_bridge
     ])
 

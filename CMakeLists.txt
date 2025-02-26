@@ -12,7 +12,7 @@ ament_environment_hooks("hooks/resource_paths.dsv.in")
 
 # Установка директорий с ресурсами
 install(
-  DIRECTORY meshes urdf launch models worlds
+  DIRECTORY meshes urdf launch models worlds config
   DESTINATION share/${PROJECT_NAME}
 )
 
