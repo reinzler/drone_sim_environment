@@ -326,6 +326,11 @@
                     <scale>0.001 0.001 0.001</scale>
                 </mesh>
             </geometry>
+            <material>
+              <ambient>.175 .175 .175  1.0</ambient>
+              <diffuse>.175 .175 .175  1.0</diffuse>
+              <specular>.175 .175 .175  1.0</specular>
+            </material>
         </visual>
         <collision name="downward_camera_collision">
             <geometry>
