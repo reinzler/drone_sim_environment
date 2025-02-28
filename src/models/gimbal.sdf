@@ -323,7 +323,7 @@
             <geometry>
                 <mesh>
                     <uri>model://gimbal/meshes/cgo3_camera_remeshed_v1.stl</uri>
-                    <scale>0.175 0.175 0.175</scale>
+                    <scale>0.001 0.001 0.001</scale>
                 </mesh>
             </geometry>
         </visual>
