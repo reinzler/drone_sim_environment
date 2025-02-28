@@ -1,0 +1,71 @@
+<sdf version='1.11'>
+  <model name='turbine'>
+    <joint name='wind_turbine_world' type='fixed'>
+      <pose relative_to='__model__'>0 0 0 0 0 0</pose>
+      <parent>world</parent>
+      <child>wind_turbine/base_link</child>
+    </joint>
+    <link name='wind_turbine/base_link'>
+      <pose relative_to='wind_turbine_world'>0 0 0 0 0 0</pose>
+      <visual name='wind_turbine/base_link_fixed_joint_lump__wind_turbine/pole_visual_1'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>file://home/customuser/drone_sim_environment/install/drone_sim_environment/share/drone_sim_environment/models/wind_turbine_1/meshes/pole.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='wind_turbine' type='revolute'>
+      <pose relative_to='wind_turbine/base_link'>0.7099 0 16.864 0 0 0</pose>
+      <parent>wind_turbine/base_link</parent>
+      <child>wind_turbine/blades</child>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-inf</lower>
+          <upper>inf</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='wind_turbine/blades'>
+      <pose relative_to='wind_turbine'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>10</mass>
+        <inertia>
+          <ixx>0.4</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.4</iyy>
+          <iyz>0</iyz>
+          <izz>0.2</izz>
+        </inertia>
+      </inertial>
+      <visual name='wind_turbine/blades_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>file://home/customuser/drone_sim_environment/install/drone_sim_environment/share/drone_sim_environment/models/wind_turbine_1/meshes/blades.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <plugin name='ignition::gazebo::systems::JointController' filename='libignition-gazebo-joint-controller-system.so'>
+      <joint_name>wind_turbine</joint_name>
+      <initial_velocity>5.0</initial_velocity>
+    </plugin>
+    <frame name='wind_turbine_base' attached_to='wind_turbine/base_link'>
+      <pose>0 0 10 0 0 0</pose>
+    </frame>
+    <frame name='wind_turbine/pole' attached_to='wind_turbine_base'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+  </model>
+</sdf>
