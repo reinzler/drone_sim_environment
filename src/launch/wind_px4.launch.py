@@ -30,6 +30,7 @@ def generate_launch_description():
     # Процесс PX4 SITL
     px4_sitl = ExecuteProcess(
         cmd=["bash", "-c", "cd ~/drone_autopilot/PX4-Autopilot && make px4_sitl gz_x500_gimbal_baylands"],
+        # cmd=["bash", "-c", "cd ~/drone_autopilot/PX4-Autopilot && make px4_sitl gz_x500_gimbal_custom"],
         output="screen"
     )
 
