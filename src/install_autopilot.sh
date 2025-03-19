@@ -80,7 +80,8 @@ git clone https://github.com/reinzler/ros2_orb_slam3.git
 cd ..
 rosdep install -r --from-paths src --ignore-src -y --rosdistro humble
 source /opt/ros/humble/setup.bash
-colcon build --symlink-install -j$(nproc)
+#colcon build --symlink-install -j$(nproc)
+colcon build --symlink-install --cmake-args=-DCMAKE_BUILD_TYPE=Release --parallel-workers $(nproc)
 
 
 # 9. Завершение
