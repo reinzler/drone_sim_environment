@@ -20,14 +20,31 @@ def generate_launch_description():
 
     # Процесс MicroXRCEAgent
     micro_xrce_agent = ExecuteProcess(
-        cmd=["MicroXRCEAgent", "udp4", "-p", "8888"],
+        cmd=["MicroXRCEAgent", "udp4", "-p", "8888",
+             "--buffer-size", "4096",
+             "--heartbeat-period-ms", "200",
+             "--retries", "10", ],
         output="screen"
     )
 
     # Процесс PX4 SITL
     px4_sitl = ExecuteProcess(
-        cmd=["bash", "-c", "cd ~/drone_autopilot/PX4-Autopilot && make px4_sitl gz_x500_gimbal_windy"],
+        cmd=["bash", "-c", "cd ~/drone_autopilot/PX4-Autopilot && make px4_sitl gz_x500_gimbal_baylands"],
         output="screen"
+    )
+
+    offboard_control = Node(
+            package="px4_offboard",
+            executable="velocity_control",
+            name='velocity'
+        )
+
+    keyboard_teleop=Node(
+        package='px4_offboard',
+        # namespace='px4_offboard',
+        executable='control',
+        name='control',
+        prefix='gnome-terminal --',
     )
 
     # Спавн модели в Gazebo
@@ -66,6 +83,8 @@ def generate_launch_description():
 
     return LaunchDescription([
         micro_xrce_agent,
+        offboard_control,
+        keyboard_teleop,
         px4_sitl,
         gz_spawn_turbine,
         gz_bridge,

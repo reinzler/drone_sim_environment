@@ -29,7 +29,17 @@ git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
 cd PX4-Autopilot && make px4_sitl -j$(nproc) || exit
 
-# 5. Клонирование Pangolin
+# 5. Клонирование px4msg, px4ros_com
+echo "Клонирование px4msg, px4ros_com"
+mkdir px4_bridge $$ cd px4_bridge
+mkdir src $$ cd src
+git clone https://github.com/PX4/px4_msgs.git
+git clone https://github.com/PX4/px4_ros_com.git
+cd ..
+colcon build
+source ~/.bashrc
+
+# 6. Клонирование Pangolin
 echo "Клонирование Pangolin..."
 git clone https://github.com/stevenlovegrove/Pangolin
 cd Pangolin
@@ -40,7 +50,7 @@ cmake --build build -j$(nproc)
 sudo cmake --install build
 cd ../..
 
-# 6. Проверка и настройка Настройка LD_LIBRARY_PATH
+# 7. Проверка и настройка Настройка LD_LIBRARY_PATH
 echo "Проверка и настройка LD_LIBRARY_PATH..."
 if [[ ":$LD_LIBRARY_PATH:" != *":/usr/local/lib:"* ]]; then
     export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
@@ -63,7 +73,7 @@ fi
 sudo ldconfig
 source ~/.bashrc
 
-# 7. Клонирование ORB-SLAM_3_ROS2
+# 8. Клонирование ORB-SLAM_3_ROS2
 echo "Клонирование ORB-SLAM_3_ROS2..."
 mkdir -p ~/ros2_test/src
 git clone https://github.com/reinzler/ros2_orb_slam3.git
@@ -73,7 +83,7 @@ source /opt/ros/humble/setup.bash
 colcon build --symlink-install -j$(nproc)
 
 
-# 8. Завершение
+# 9. Завершение
 echo "Установка завершена! Все компоненты находятся в папке ~/drone_autopilot."
 echo "Чтобы запустить PX4 SITL, выполните:"
 echo "cd ~/drone_autopilot/PX4-Autopilot && make px4_sitl gz_x500_gimbal_windy"
