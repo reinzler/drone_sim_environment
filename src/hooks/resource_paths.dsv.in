@@ -1,1 +1,2 @@
 prepend-non-duplicate;GZ_SIM_RESOURCE_PATH;share/drone_sim_environment/models
+prepend-non-duplicate;GZ_SIM_RESOURCE_PATH;/home/customuser/drone_autopilot/PX4-Autopilot/Tools/simulation/gz/models

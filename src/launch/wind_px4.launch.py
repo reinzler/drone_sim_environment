@@ -67,6 +67,7 @@ def generate_launch_description():
             on_shutdown=[
                 micro_xrce_agent,  # Завершаем MicroXRCEAgent
                 px4_sitl,  # Завершаем PX4 SITL
+                keyboard_control_launch,
             ]
         )
     )

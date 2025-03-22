@@ -12,7 +12,6 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-<!--            <uri>file://home/customuser/drone_sim_environment/install/drone_sim_environment/share/drone_sim_environment/models/wind_turbine_1/meshes/pole.stl</uri>-->
             <uri>model://wind_turbine_1/meshes/pole.stl</uri>
           </mesh>
         </geometry>
@@ -53,7 +52,6 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-<!--            <uri>file://home/customuser/drone_sim_environment/install/drone_sim_environment/share/drone_sim_environment/models/wind_turbine_1/meshes/blades.stl</uri>-->
             <uri>model://wind_turbine_1/meshes/blades.stl</uri>
           </mesh>
         </geometry>
